@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Fabytex</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary-color: #001f3f; /* Azul Fabytex */
+            --accent-color: #ffcc00;  /* Amarillo Fabytex */
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero de Contacto */
+        .contact-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('../images/contacto/hero.jpg') no-repeat center center/cover;
+            color: white;
+            margin-bottom: 100px;
+            overflow: hidden;
+            padding-bottom: 100px;
+        }
+        
+        .contact-hero .container {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px);
+        }
+        
+        .contact-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .contact-hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Grid de Información */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: -80px auto 4rem;
+            padding: 0 20px;
+            max-width: 1200px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .info-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transform: translateY(0);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+        
+        .info-card p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+            margin-top: 1rem;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-whatsapp i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Mapa */
+        .map-section {
+            width: 100%;
+            padding: 0 20px;
+            margin: 5rem auto;
+            max-width: 1200px;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Formulario */
+        .form-section {
+            background-color: var(--white);
+            padding: 5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .form-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem auto 0;
+            display: block;
+        }
+        
+        .btn-submit:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .form-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Faby<span>tex</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Menú">
+                <span class="hamburger"></span>
+            </button>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                </ul>
+                <a href="https://wa.me/593993076595" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero de Contacto -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Hablemos de tu próximo look</h1>
+            <p>Estamos listos para atenderte en línea o en nuestra tienda en Loja.</p>
+        </div>
+    </section>
+
+    <!-- Grid de Información -->
+    <div class="info-grid">
+        <!-- Tarjeta 1: Contacto por WhatsApp -->
+        <div class="info-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Pregúntanos por WhatsApp</h3>
+            <p>Contáctanos directamente a través de WhatsApp para una respuesta rápida y personalizada.</p>
+            <a href="https://wa.me/593993076595" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Escríbenos Ahora
+            </a>
+        </div>
+        
+        <!-- Tarjeta 2: Ubicación -->
+        <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Visítanos en Loja</h3>
+            <p>Av. 10 de Agosto y Bernardo Valdivieso, Loja, Ecuador</p>
+            <p><strong>Horario:</strong><br>Lunes a sábado de 9:00 AM a 7:00 PM</p>
+        </div>
+        
+        <!-- Tarjeta 3: Teléfono -->
+        <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Llamada o Consulta General</h3>
+            <p>Si prefieres hablar con nosotros, llámanos al:</p>
+            <p><strong>Teléfono:</strong><br>+593 72 579 123</p>
+        </div>
+    </div>
+
+    <!-- Mapa -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3333171931557!2d-79.2083397852468!3d-3.993752997281034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cb4d8b8a3b5b1b%3A0x3b8b8b8b8b8b8b8b8!2sAv.%2010%20de%20Agosto%20y%20Bernardo%20Valdivieso%2C%20Loja%2C%20Ecuador!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="form-section">
+        <div class="form-container">
+            <h2>¿Tienes alguna pregunta?</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Columna 1: Logo y Redes Sociales -->
+                <div class="footer-column logo-social">
+                    <div class="footer-logo">
+                        <a href="index.html" class="footer-logo-link">Faby<span>tex</span></a>
+                    </div>
+                    <p class="footer-about">Moda de calidad a precios accesibles para la mujer lojana.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/593993076595" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces de Navegación -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="catalogo.html"><i class="fas fa-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información de Contacto -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. 10 de Agosto y Bernardo Valdivieso, Loja, Ecuador</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+593993076595">+593 99 307 6595</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@fabytex.com">info@fabytex.com</a>
+                        </li>
+                        <li>
+                            <i class="far fa-clock"></i>
+                            <span>Lunes a Sábado: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <div class="footer-divider"></div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <span id="current-year">2025</span> Fabytex. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para el menú móvil y otros efectos -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script para el formulario de contacto -->
+    <script>
+        // Manejar el envío del formulario
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para enviar el formulario
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+        
+        // Actualizar el año en el footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

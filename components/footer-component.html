@@ -1,0 +1,319 @@
+<!-- Footer Component -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Columna 1: Logo y Redes Sociales -->
+            <div class="footer-column logo-social">
+                <div class="footer-logo">
+                    <a href="index.html" class="footer-logo-link">Faby<span>tex</span></a>
+                </div>
+                <p class="footer-about">Moda de calidad a precios accesibles para la mujer lojana.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/593993076595" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Enlaces de Navegación -->
+            <div class="footer-column">
+                <h3 class="footer-title">Navegación</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Catálogo</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    <li><a href="#faqs"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Información de Contacto -->
+            <div class="footer-column">
+                <h3 class="footer-title">Contacto</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. 10 de Agosto y Bernardo Valdivieso, Loja, Ecuador</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+593993076595">+593 99 307 6595</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/593993076595" target="_blank">WhatsApp</a>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <span>Lunes a sábado: 9:00 AM - 7:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Línea divisoria -->
+        <div class="footer-divider"></div>
+        
+        <!-- Copyright y enlaces legales -->
+        <div class="footer-bottom">
+            <p class="copyright">Diseñado por <a href="https://cesarreyesjaramillo.com" target="_blank" style="color: var(--accent-color); text-decoration: none;">@cesarreyesjaramillo.com</a> &copy; <span id="current-year">2025</span> Fabytex. Todos los derechos reservados.</p>
+            <div class="legal-links">
+                <a href="#">Términos y Condiciones</a>
+                <span>|</span>
+                <a href="#">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Estilos específicos del Footer -->
+<style>
+/* Estilos para el Footer */
+.site-footer {
+    background-color: #001f3f;
+    color: #ffffff;
+    padding: 5rem 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column {
+    margin-bottom: 2rem;
+}
+
+.footer-logo-link {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-link span {
+    color: #ffcc00;
+}
+
+.footer-about {
+    color: #c0c0c0;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #ffcc00;
+    color: #001f3f;
+    transform: translateY(-3px);
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #ffcc00;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #c0c0c0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a i {
+    margin-right: 8px;
+    font-size: 0.7rem;
+    color: #ffcc00;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-links a:hover i {
+    margin-right: 12px;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    margin-bottom: 1.2rem;
+    color: #c0c0c0;
+    line-height: 1.5;
+}
+
+.footer-contact i {
+    color: #ffcc00;
+    margin-right: 15px;
+    margin-top: 4px;
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.footer-contact a {
+    color: #c0c0c0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #ffcc00;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.copyright {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.legal-links a {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #ffcc00;
+}
+
+.legal-links span {
+    color: #555555;
+    font-size: 0.8rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .copyright {
+        margin-bottom: 1rem;
+    }
+}
+</style>
+
+<!-- Script para el año actual -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Actualizar año actual
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>

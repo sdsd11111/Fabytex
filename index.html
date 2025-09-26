@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabytex - Tienda de Ropa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Faby<span>tex</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Menú">
+                <span class="hamburger"></span>
+            </button>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                <a href="https://wa.me/593993076595" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 style="font-size: 5.5rem; margin-bottom: 1.5rem; font-weight: 700;">Fabytex</h1>
+            <p>Descubre la moda de alta calidad que redefine tu estilo, sin comprometer tu bolsillo</p>
+            <a href="https://wa.me/593993076595" class="hero-btn">
+                <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Fabytex: Tu Estilo, Nuestra Pasión</h2>
+            <p class="about-intro">
+                Desde 2009, en Fabytex nos hemos dedicado a llevar la moda de alta calidad a Loja. Sabemos que mereces sentirte increíble sin sacrificar tu bolsillo. Nuestra misión es ofrecerte prendas duraderas y de alta calidad a precios de fábrica, haciendo de la moda accesible una realidad. Te invitamos a visitarnos para que vivas una experiencia de compra única y descubras por qué decimos '¡Le queda hermoso...!!!'.
+            </p>
+            
+            <div class="about-cards-container">
+                <div class="about-cards">
+                    <!-- Tarjeta 1: Historia -->
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Nuestra Historia</h3>
+                        <p>Con más de una década de experiencia en el mercado de la moda en Loja, hemos crecido junto a nuestra comunidad, ofreciendo las últimas tendencias con el sello de calidad que nos caracteriza.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 2: Calidad -->
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Calidad Garantizada</h3>
+                        <p>Cada prenda en Fabytex pasa por rigurosos controles de calidad. Trabajamos directamente con los fabricantes para ofrecerte lo mejor al mejor precio, sin intermediarios.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 3: Compromiso -->
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Nuestro Compromiso</h3>
+                        <p>No solo vendemos ropa, creamos experiencias. Nuestro equipo está comprometido en brindarte una atención personalizada que haga de tu compra un momento especial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Video -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Conoce nuestra tienda</h2>
+            <div class="video-container">
+                <div class="youtube-video">
+                    <iframe 
+                        width="100%" 
+                        height="500" 
+                        src="https://www.youtube.com/embed/hlIMql18Nfw" 
+                        title="Video de Fabytex" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Nuestros Productos -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-container">
+                <div class="products-grid">
+                    <!-- Tarjeta 1: Jeans -->
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Inicio/Moda Femenina.jpg" alt="Moda Femenina">
+                        </div>
+                        <div class="category-content">
+                            <h3>Moda Femenina</h3>
+                            <a href="#" class="btn btn-primary">Conoce más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Vestidos -->
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Inicio/Uniformes y Trabajo.jpg" alt="Uniformes y Trabajo">
+                        </div>
+                        <div class="category-content">
+                            <h3>Uniformes y Trabajo</h3>
+                            <a href="#" class="btn btn-primary">Conoce más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Blusas y Tops -->
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Inicio/Indumentaria Medica.jpg" alt="Indumentaria Médica">
+                        </div>
+                        <div class="category-content">
+                            <h3>Indumentaria Médica</h3>
+                            <a href="#" class="btn btn-primary">Conoce más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4: Faldas -->
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Inicio/Deportiva y Pijameria.jpg" alt="Deportiva y Pijamería">
+                        </div>
+                        <div class="category-content">
+                            <h3>Deportiva y Pijamería</h3>
+                            <a href="#" class="btn btn-primary">Conoce más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5: Conjuntos -->
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Inicio/Confeccion a Medida.jpg" alt="Confección a Medida">
+                        </div>
+                        <div class="category-content">
+                            <h3>Confección a Medida</h3>
+                            <a href="#" class="btn btn-primary">Conoce más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <!-- Sección de Preguntas Frecuentes -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <!-- Pregunta 1 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>¿Hacen envíos a otras ciudades?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Sí, realizamos envíos a todo el Ecuador. El costo y el tiempo de entrega varían según la ubicación.</p>
+                    </div>
+                </details>
+
+                <!-- Pregunta 2 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>¿Qué métodos de pago aceptan?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Aceptamos efectivo, transferencias bancarias y todas las tarjetas de crédito.</p>
+                    </div>
+                </details>
+
+                <!-- Pregunta 3 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>¿Cuál es su política de cambios y devoluciones?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Aceptamos cambios de prenda en un plazo de 15 días, siempre y cuando el producto esté en perfecto estado y con sus etiquetas originales. No se aceptan devoluciones de dinero.</p>
+                    </div>
+                </details>
+
+                <!-- Pregunta 4 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>¿Tienen tallas grandes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Sí, manejamos una amplia variedad de tallas, desde la XS hasta la XL, para adaptarnos a las necesidades de todas nuestras clientes.</p>
+                    </div>
+                </details>
+
+                <!-- Pregunta 5 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>¿Dónde puedo ver las novedades?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Publicamos nuestras nuevas colecciones y productos constantemente en nuestra página de Facebook e Instagram. ¡Síguenos para no perderte ninguna novedad!</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Columna de Información -->
+                <div class="contact-info">
+                    <h2 class="section-title">Contáctanos</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Dirección</h3>
+                                <p>Av. 10 de Agosto y Bernardo Valdivieso<br>Loja, Ecuador</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>WhatsApp</h3>
+                                <p><a href="https://wa.me/593993076595" target="_blank">099 307 6595</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Teléfono</h3>
+                                <p><a href="tel:+59372579123">07 2579 123</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Horario de Atención</h3>
+                                <p>Lunes a Sábado: 9:00 AM - 8:00 PM<br>
+                                Domingos: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna del Mapa -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.788194705587!2d-79.2080157852414!3d-3.9938589964117787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cb4d9c9a3a8a1d%3A0x4a4c309ae8a9b64e!2sAv.%2010%20de%20Agosto%20%26%20Bernardo%20Valdivieso%2C%20Loja!5e0!3m2!1ses-419!2sec!4v1620000000000!5m2!1ses-419!2sec" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Ubicación de Fabytex en Google Maps">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Columna 1: Logo y Redes Sociales -->
+                <div class="footer-column logo-social">
+                    <div class="footer-logo">
+                        <a href="index.html" class="footer-logo-link">Faby<span>tex</span></a>
+                    </div>
+                    <p class="footer-about">Moda de calidad a precios accesibles para la mujer lojana.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/593993076595" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces de Navegación -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="catalogo.html"><i class="fas fa-chevron-right"></i> Catálogo</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                        <li><a href="#faqs"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información de Contacto -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. 10 de Agosto y Bernardo Valdivieso, Loja, Ecuador</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+593993076595">+593 99 307 6595</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/593993076595" target="_blank">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="far fa-clock"></i>
+                            <span>Lunes a sábado: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <div class="footer-divider"></div>
+            
+            <!-- Copyright y enlaces legales -->
+            <div class="footer-bottom">
+                <p class="copyright">Diseñado por <a href="https://cesarreyesjaramillo.com" target="_blank" style="color: var(--accent-color); text-decoration: none;">@cesarreyesjaramillo.com</a> &copy; <span id="current-year">2025</span> Fabytex. Todos los derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Términos y Condiciones</a>
+                    <span>|</span>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para el año actual y menú móvil -->
+    <script>
+        // Actualizar año actual en el footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Menú móvil
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Cerrar menú al hacer clic en un enlace
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+            
+            // Smooth scroll para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href;
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+        <style>
+            .video-container {
+                position: relative;
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .youtube-video {
+                position: relative;
+                padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+                height: 0;
+                overflow: hidden;
+                max-width: 100%;
+            }
+            
+            .youtube-video iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        </style>
+    </script>
+</body>
+</html>
