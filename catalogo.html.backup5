@@ -4,26 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Fabytex</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fabytex.vercel.app/catalogo.html">
-    <meta property="og:title" content="Fabytex - Descubre nuestro catálogo">
-    <meta property="og:description" content="Bienvenido a Fabytex, disfruta nuestros servicios.">
-    <meta property="og:image" content="https://fabytex.vercel.app/images/imagen%20destacada.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://fabytex.vercel.app/catalogo.html">
-    <meta property="twitter:title" content="Fabytex - Descubre nuestro catálogo">
-    <meta property="twitter:description" content="Bienvenido a Fabytex, disfruta nuestros servicios.">
-    <meta property="twitter:image" content="https://fabytex.vercel.app/images/imagen%20destacada.jpg">
-    
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-catalog-tabs.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Asegurar que el body ocupe al menos el 100% del viewport */
@@ -2119,104 +2100,19 @@
                             </div>
                         </div>
                     </div>
-<!-- Para Mujeres --></div>
-            </div>
-        </section>
-
-        <!-- Sección de Deportiva y Pijamería -->
-        
-        
-        <!-- Sección de Ropa Deportiva y Pijamería -->
-        <section id="deportiva-section" class="product-section">
-            <div class="container">
-                <h2 class="section-title">Ropa Deportiva y Pijamería</h2>
-                <p class="section-subtitle">Comodidad para estar activo o relajado</p>
-                <div class="catalog-grid" id="deportiva-y-pijameria-grid">
-<!-- Outfits de Yoga y Gimnasio loja -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+<!-- Para Mujeres -->
+                    <div class="product-card" data-category="indumentaria-medica">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
-                                <img src="images/catalogo/Outfits de Yoga y Gimnasio Loja.jpg" alt="Outfits de Yoga y Gimnasio loja" loading="lazy">
+                                <img src="images/catalogo/indumentaria-medica-para-mujeres.jpeg" alt="Para Mujeres" loading="lazy">
                             </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-title">Outfits de Yoga y Gimnasio loja</h3>
-                            <p class="product-description">Outfits de Yoga y Gimnasio loja de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <h3 class="product-title">Para Mujeres</h3>
+                            <p class="product-description">Para Mujeres de alta calidad. Contáctanos para más información sobre este producto.</p>
                             <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Outfits%20de%20Yoga%20y%20Gimnasio%20loja" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-<!-- Chaleco Deportivo -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-chaleco-deportivo.jpeg" alt="Chaleco Deportivo" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Chaleco Deportivo</h3>
-                            <p class="product-description">Chaleco Deportivo de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaleco%20Deportivo" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-<!-- Para Hombres Camisetas -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-para-hombres-camisetas.jpeg" alt="Para Hombres Camisetas" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Para Hombres Camisetas</h3>
-                            <p class="product-description">Para Hombres Camisetas de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Hombres%20Camisetas" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-<!-- Para Hombres -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-para-hombres.jpeg" alt="Para Hombres" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Para Hombres</h3>
-                            <p class="product-description">Para Hombres de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Hombres" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-<!--  -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria.jpg" alt="" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title"></h3>
-                            <p class="product-description"> de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20" class="btn btn-primary" target="_blank">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
@@ -2225,14 +2121,27 @@
                 </div>
             </div>
         </section>
-        <!-- Sección de Confección a Medida -->
+
+        <!-- Sección de Deportiva y Pijamería -->
+        
+        <!-- Sección de Ropa Deportiva y Pijamería -->
+        <section id="deportiva-section" class="product-section">
+            <div class="container">
+                <h2 class="section-title">Ropa Deportiva y Pijamería</h2>
+                <p class="section-subtitle">Comodidad para estar activo o relajado</p>
+                <div class="catalog-grid" id="deportiva-y-pijameria-grid">
+
+            </div>
+        </section>
+
+        
+        <!-- Sección de Productos - Confección a Medida -->
         <section id="medida-section" class="product-section">
             <div class="container">
                 <h2 class="section-title">Confección a Medida</h2>
                 <p class="section-subtitle">Productos personalizados según tus necesidades</p>
-                
                 <div class="catalog-grid">
-                    
+<!-- Allikay -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2250,7 +2159,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Camisa Hombre -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2268,7 +2177,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Camiseta Doozzin -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2286,7 +2195,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Camiseta Eventos -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2304,7 +2213,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Camiseta -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2322,7 +2231,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Pastoral Caritas -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2340,7 +2249,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Restaurante -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2358,7 +2267,7 @@
                             </div>
                         </div>
                     </div>
-
+<!-- Super Mercado Zaka -->
                     <div class="product-card" data-category="confeccion-a-medida">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -2377,8 +2286,17 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Banner de servicio personalizado -->
+                <div class="custom-order-banner">
+                    <h3>¿Necesitas algo personalizado?</h3>
+                    <p>¡Nosotros lo hacemos realidad! Contáctanos para solicitar un presupuesto sin compromiso.</p>
+                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20un%20producto%20personalizado" class="cta-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
+                    </a>
+                </div>
             </div>
-        </section></section></section>
+        </section></section>
     </main>
 
     <!-- Footer -->

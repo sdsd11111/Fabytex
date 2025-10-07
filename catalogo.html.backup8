@@ -4,26 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Fabytex</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fabytex.vercel.app/catalogo.html">
-    <meta property="og:title" content="Fabytex - Descubre nuestro catálogo">
-    <meta property="og:description" content="Bienvenido a Fabytex, disfruta nuestros servicios.">
-    <meta property="og:image" content="https://fabytex.vercel.app/images/imagen%20destacada.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://fabytex.vercel.app/catalogo.html">
-    <meta property="twitter:title" content="Fabytex - Descubre nuestro catálogo">
-    <meta property="twitter:description" content="Bienvenido a Fabytex, disfruta nuestros servicios.">
-    <meta property="twitter:image" content="https://fabytex.vercel.app/images/imagen%20destacada.jpg">
-    
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-catalog-tabs.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Asegurar que el body ocupe al menos el 100% del viewport */
@@ -2119,7 +2100,25 @@
                             </div>
                         </div>
                     </div>
-<!-- Para Mujeres --></div>
+<!-- Para Mujeres -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/indumentaria-medica-para-mujeres.jpeg" alt="Para Mujeres" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Para Mujeres</h3>
+                            <p class="product-description">Para Mujeres de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -2217,160 +2216,6 @@
                             <p class="product-description"> de alta calidad. Contáctanos para más información sobre este producto.</p>
                             <div class="product-actions">
                                 <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Sección de Confección a Medida -->
-        <section id="medida-section" class="product-section">
-            <div class="container">
-                <h2 class="section-title">Confección a Medida</h2>
-                <p class="section-subtitle">Productos personalizados según tus necesidades</p>
-                
-                <div class="catalog-grid">
-                    
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-allikay.jpeg" alt="Allikay" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Allikay</h3>
-                            <p class="product-description">Allikay de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Allikay" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-camisa-hombre.jpeg" alt="Camisa Hombre" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Camisa Hombre</h3>
-                            <p class="product-description">Camisa Hombre de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Camisa%20Hombre" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-camiseta-doozzin.jpeg" alt="Camiseta Doozzin" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Camiseta Doozzin</h3>
-                            <p class="product-description">Camiseta Doozzin de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Camiseta%20Doozzin" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-camiseta-eventos.jpeg" alt="Camiseta Eventos" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Camiseta Eventos</h3>
-                            <p class="product-description">Camiseta Eventos de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Camiseta%20Eventos" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-camiseta.jpeg" alt="Camiseta" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Camiseta</h3>
-                            <p class="product-description">Camiseta de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Camiseta" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-pastoral-caritas.jpeg" alt="Pastoral Caritas" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Pastoral Caritas</h3>
-                            <p class="product-description">Pastoral Caritas de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pastoral%20Caritas" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-restaurante.jpeg" alt="Restaurante" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Restaurante</h3>
-                            <p class="product-description">Restaurante de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Restaurante" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="confeccion-a-medida">
-                        <div class="product-header">
-                            <div class="product-badge">Nuevo</div>
-                            <div class="product-image">
-                                <img src="images/catalogo/confeccion-a-medida-super-mercado-zaka.jpeg" alt="Super Mercado Zaka" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-title">Super Mercado Zaka</h3>
-                            <p class="product-description">Super Mercado Zaka de alta calidad. Contáctanos para más información sobre este producto.</p>
-                            <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Super%20Mercado%20Zaka" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>

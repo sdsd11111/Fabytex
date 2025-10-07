@@ -24,6 +24,48 @@ a {
     color: inherit;
 }
 
+/* Video Section */
+.video-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 300px; /* Tamaño reducido para móvil por defecto */
+    margin: 0 auto;
+    position: relative;
+}
+
+.reel-container {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* 9:16 Aspect Ratio (height/width = 16/9 = 1.778) */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: #000;
+}
+
+.reel-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Ajustes para pantallas más grandes */
+@media (min-width: 992px) {
+    .video-container {
+        max-width: 250px; /* Tamaño reducido para desktop */
+    }
+}
+
 /* Estilos del header */
 .header {
     background-color: #162b42;
@@ -974,7 +1016,7 @@ body.menu-open {
 
 /* Estilos para la sección Sobre Nosotros */
 .about-section {
-    padding: 6rem 0;
+    padding: 6rem 0 0.5rem; /* Reducido el padding inferior a 0.5rem */
     background-color: #fff;
     position: relative;
 }
@@ -1384,7 +1426,7 @@ body.menu-open {
 /* Estilos para el Footer */
 /* Estilos para la sección de productos */
 .products-section {
-    padding: 5rem 0;
+    padding: 1rem 0 5rem; /* Reducido el padding superior a 1rem */
     background-color: #f9f9f9;
 }
 
