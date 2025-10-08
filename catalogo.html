@@ -1340,13 +1340,24 @@
     <div class="products-container">
         
         <!-- Sección de Productos - Todos -->
-        <section id="all-section" class="product-section">
+        <section id="all-section" class="product-section active">
             <div class="container">
                 <h2 class="section-title">Todos Nuestros Productos</h2>
                 <p class="section-subtitle">Descubre nuestra amplia gama de productos de calidad</p>
+                <div class="catalog-grid" id="all-products-grid">
+                    <!-- Las tarjetas se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Moda Femenina -->
+        <section id="moda-femenina-section" class="product-section">
+            <div class="container">
+                <h2 class="section-title">Moda Femenina</h2>
+                <p class="section-subtitle">Descubre nuestra colección de moda para mujer</p>
                 <div class="catalog-grid">
-<!-- Chaleco de Mujer -->
-                        <div class="product-card" data-category="moda-femenina">
+                    <!-- Chaleco de Mujer -->
+                    <div class="product-card" data-category="moda-femenina">
                             <div class="product-header">
                                 <div class="product-badge">Nuevo</div>
                                 <div class="product-image">
@@ -2458,6 +2469,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/catalog-fix.js"></script>
     <script>
         // Inicializar cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', function() {
@@ -2466,7 +2478,9 @@
             
             // Función para cambiar de pestaña
             function switchTab(tabId) {
-                // Ocultar todos los contenidos de pestañas
+                console.log('Cambiando a pestaña:', tabId);
+                
+                // Ocultar todas las secciones de productos
                 document.querySelectorAll('.product-section').forEach(section => {
                     section.classList.remove('active');
                 });
@@ -2476,10 +2490,27 @@
                     button.classList.remove('active');
                 });
                 
-                // Activar el contenido de la pestaña seleccionada
+                // Mostrar u ocultar tarjetas según la categoría seleccionada
+                const allCards = document.querySelectorAll('.product-card');
+                allCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (tabId === 'all' || cardCategory === tabId) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Activar la sección correspondiente
                 const activeSection = document.getElementById(`${tabId}-section`);
                 if (activeSection) {
                     activeSection.classList.add('active');
+                    
+                    // Mostrar todas las tarjetas dentro de la sección activa
+                    const sectionCards = activeSection.querySelectorAll('.product-card');
+                    sectionCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
                 }
                 
                 // Activar el botón de la pestaña seleccionada
