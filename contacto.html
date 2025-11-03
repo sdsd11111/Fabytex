@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Fabytex</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -243,6 +245,24 @@
         .form-control:focus {
             outline: none;
             border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 204, 0, 0.25);
+        }
+        
+        /* Estilos para el select personalizado */
+        select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23001f3f' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            padding-right: 2.5rem;
+            cursor: pointer;
+        }
+        
+        select.form-control:focus {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffcc00' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
         }
         
         textarea.form-control {
@@ -384,9 +404,21 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" class="form-control" required></textarea>
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Ej: Consulta sobre pedido personalizado" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="category">Categoría de interés</label>
+                    <select id="category" name="category" class="form-control" required>
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option value="deportiva">Ropa Deportiva</option>
+                        <option value="medica">Indumentaria Médica</option>
+                        <option value="pijameria">Pijamería</option>
+                        <option value="confeccion">Confección a Medida</option>
+                        <option value="barberia">Ropa para Barbería y Estética</option>
+                        <option value="uniformes">Uniformes Empresariales</option>
+                    </select>
                 
                 <button type="submit" class="btn-submit">Enviar Mensaje</button>
             </form>
@@ -422,7 +454,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
                         <li><a href="catalogo.html"><i class="fas fa-chevron-right"></i> Catálogo</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
                         <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                     </ul>
                 </div>
