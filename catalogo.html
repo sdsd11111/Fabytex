@@ -4321,6 +4321,10 @@
                     // Verificar si el hash coincide con alguna pestaña
                     const tabButton = document.querySelector(`.tab-button[data-tab="${hash}"]`);
                     if (tabButton) {
+                        // Inicializar la paginación antes de cambiar de pestaña
+                        if (!visibleItems[hash]) {
+                            visibleItems[hash] = ITEMS_PER_PAGE;
+                        }
                         switchTab(hash);
                         return;
                     }
@@ -4330,7 +4334,16 @@
                 const firstTab = document.querySelector('.tab-button');
                 if (firstTab) {
                     const defaultTabId = firstTab.getAttribute('data-tab');
+                    // Inicializar la paginación para la pestaña por defecto
+                    if (!visibleItems[defaultTabId]) {
+                        visibleItems[defaultTabId] = ITEMS_PER_PAGE;
+                    }
                     switchTab(defaultTabId);
+                }
+                
+                // Asegurarse de que la paginación se aplique a la pestaña actual
+                if (currentTab) {
+                    initTabPagination(currentTab);
                 }
             }
             
