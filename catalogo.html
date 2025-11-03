@@ -4099,13 +4099,152 @@
             // Agregar clase de carga inicial
             document.body.classList.add('loaded');
             
+            // Variables para el control de paginación
+            const ITEMS_PER_PAGE = 6;
+            let currentTab = 'all';
+            let visibleItems = {};
+            const tabStates = new Map();
+
+            // Función para inicializar la paginación de una pestaña
+            function initTabPagination(tabId) {
+                const section = document.getElementById(`${tabId}-section`);
+                if (!section) return;
+                
+                const cards = section.querySelectorAll('.product-card');
+                if (!visibleItems[tabId]) {
+                    visibleItems[tabId] = ITEMS_PER_PAGE;
+                }
+                
+                // Ocultar todas las tarjetas primero
+                cards.forEach((card, index) => {
+                    if (index < visibleItems[tabId]) {
+                        card.style.display = 'block';
+                        // Asegurarse de que las tarjetas tengan la clase 'visible' para las animaciones
+                        card.classList.add('visible');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('visible');
+                    }
+                });
+                
+                // Actualizar o crear el botón de cargar más
+                updateLoadMoreButton(tabId, cards.length);
+                
+                // Desplazarse al principio de la sección si es una navegación desde otra página
+                if (window.location.hash === `#${tabId}`) {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: section.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+
+            // Función para actualizar el botón de cargar más
+            function updateLoadMoreButton(tabId, totalItems) {
+                const section = document.getElementById(`${tabId}-section`);
+                if (!section) return;
+                
+                // Eliminar botones existentes para evitar duplicados
+                const existingButtons = section.querySelectorAll('.load-more-btn');
+                existingButtons.forEach(btn => btn.remove());
+                
+                // Si hay más elementos por mostrar, agregar el botón
+                if (visibleItems[tabId] < totalItems) {
+                    const button = document.createElement('button');
+                    button.className = 'load-more-btn';
+                    button.textContent = 'Ver más productos';
+                    
+                    // Estilos del botón
+                    Object.assign(button.style, {
+                        display: 'block',
+                        margin: '20px auto',
+                        padding: '10px 20px',
+                        backgroundColor: '#ffcc00',
+                        color: '#001f3f',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontWeight: '600',
+                        fontSize: '16px',
+                        transition: 'all 0.3s ease',
+                        gridColumn: '1 / -1' // Asegura que el botón ocupe todo el ancho
+                    });
+                    
+                    // Efecto hover
+                    button.addEventListener('mouseover', () => {
+                        button.style.backgroundColor = '#e6b800';
+                        button.style.transform = 'translateY(-2px)';
+                    });
+                    
+                    button.addEventListener('mouseout', () => {
+                        button.style.backgroundColor = '#ffcc00';
+                        button.style.transform = 'translateY(0)';
+                    });
+                    
+                    // Manejar clic en el botón - versión simplificada
+                    button.addEventListener('click', function(e) {
+                        // Solo incrementar el contador y actualizar la vista
+                        visibleItems[tabId] += ITEMS_PER_PAGE;
+                        
+                        // Obtener las tarjetas de la sección actual
+                        const section = document.getElementById(`${tabId}-section`);
+                        const cards = section.querySelectorAll('.product-card');
+                        
+                        // Mostrar las siguientes tarjetas
+                        cards.forEach((card, index) => {
+                            if (index < visibleItems[tabId]) {
+                                card.style.display = 'block';
+                                card.classList.add('visible');
+                            }
+                        });
+                        
+                        // Actualizar o eliminar el botón según sea necesario
+                        if (visibleItems[tabId] >= cards.length) {
+                            const container = section.querySelector('.load-more-container');
+                            if (container) container.remove();
+                        }
+                        
+                        // Prevenir comportamiento por defecto
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
+                    });
+                    
+                    // Crear un contenedor para el botón si no existe
+                    let buttonContainer = section.querySelector('.load-more-container');
+                    if (!buttonContainer) {
+                        buttonContainer = document.createElement('div');
+                        buttonContainer.className = 'load-more-container';
+                        section.querySelector('.catalog-grid').after(buttonContainer);
+                    }
+                    
+                    buttonContainer.appendChild(button);
+                }
+            }
+
             // Función para cambiar de pestaña
             function switchTab(tabId) {
                 console.log('Cambiando a pestaña:', tabId);
                 
-                // Ocultar todas las secciones de productos
+                // No hacer nada si ya estamos en esta pestaña
+                if (currentTab === tabId) return;
+                
+                currentTab = tabId;
+                
+                // Inicializar el contador de elementos visibles si no existe
+                if (visibleItems[tabId] === undefined) {
+                    visibleItems[tabId] = ITEMS_PER_PAGE;
+                }
+                
+                // Ocultar todas las secciones de productos y botones de carga
                 document.querySelectorAll('.product-section').forEach(section => {
                     section.classList.remove('active');
+                    const loadMoreContainer = section.querySelector('.load-more-container');
+                    if (loadMoreContainer) {
+                        loadMoreContainer.innerHTML = ''; // Limpiar botones existentes
+                    }
                 });
                 
                 // Desactivar todos los botones de pestaña
@@ -4113,15 +4252,10 @@
                     button.classList.remove('active');
                 });
                 
-                // Mostrar u ocultar tarjetas según la categoría seleccionada
-                const allCards = document.querySelectorAll('.product-card');
-                allCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (tabId === 'all' || cardCategory === tabId) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                // Ocultar todas las tarjetas primero
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.display = 'none';
+                    card.classList.remove('visible');
                 });
                 
                 // Activar la sección correspondiente
@@ -4129,11 +4263,8 @@
                 if (activeSection) {
                     activeSection.classList.add('active');
                     
-                    // Mostrar todas las tarjetas dentro de la sección activa
-                    const sectionCards = activeSection.querySelectorAll('.product-card');
-                    sectionCards.forEach(card => {
-                        card.style.display = 'block';
-                    });
+                    // Inicializar la paginación para esta pestaña
+                    initTabPagination(tabId);
                 }
                 
                 // Activar el botón de la pestaña seleccionada
@@ -4157,9 +4288,14 @@
             
             // Configurar los botones de pestaña
             document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
                     const tabId = this.getAttribute('data-tab');
                     switchTab(tabId);
+                    
+                    // Actualizar la URL sin recargar la página
+                    const newUrl = `${window.location.pathname}#${tabId}`;
+                    window.history.pushState({ tab: tabId }, '', newUrl);
                 });
             });
             
@@ -4201,78 +4337,32 @@
             // Inicializar la pestaña activa
             initTab();
             
-            // Función para inicializar la carga progresiva de productos
-            function initProgressiveLoading() {
-                // Configuración de carga progresiva
-                const itemsPerLoad = 6; // Cantidad de productos a cargar por vez
-                const allGrids = document.querySelectorAll('.catalog-grid');
-                
-                allGrids.forEach(grid => {
-                    const items = grid.querySelectorAll('.product-card');
-                    const totalItems = items.length;
-                    let visibleItems = 0;
-                    
-                    // Ocultar todos los elementos inicialmente
-                    items.forEach(item => {
-                        item.style.display = 'none';
-                    });
-                    
-                    // Mostrar los primeros elementos
-                    showMoreItems(grid, itemsPerLoad);
-                    
-                    // Crear botón de "Ver más" si es necesario
-                    if (items.length > itemsPerLoad) {
-                        const loadMoreBtn = document.createElement('button');
-                        loadMoreBtn.className = 'load-more-btn';
-                        loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Ver más productos';
-                        
-                        const loadMoreContainer = document.createElement('div');
-                        loadMoreContainer.className = 'load-more-container';
-                        loadMoreContainer.appendChild(loadMoreBtn);
-                        
-                        grid.parentNode.insertBefore(loadMoreContainer, grid.nextSibling);
-                        
-                        // Manejar clic en el botón "Ver más"
-                        loadMoreBtn.addEventListener('click', function() {
-                            if (this.classList.contains('loading')) return;
-                            
-                            this.classList.add('loading');
-                            this.innerHTML = '<i class="fas fa-spinner"></i> Cargando...';
-                            
-                            // Simular carga con un pequeño retraso para mejor experiencia de usuario
-                            setTimeout(() => {
-                                showMoreItems(grid, itemsPerLoad);
-                                this.classList.remove('loading');
-                                this.innerHTML = '<i class="fas fa-plus"></i> Ver más productos';
-                                
-                                // Ocultar el botón si ya se mostraron todos los elementos
-                                const remainingItems = grid.querySelectorAll('.product-card[style="display: none;"]').length;
-                                if (remainingItems === 0) {
-                                    this.style.display = 'none';
-                                }
-                            }, 300);
-                        });
-                    }
-                });
-                
-                // Función para mostrar más elementos
-                function showMoreItems(grid, count) {
-                    const hiddenItems = grid.querySelectorAll('.product-card[style="display: none;"]');
-                    const itemsToShow = Math.min(count, hiddenItems.length);
-                    
-                    for (let i = 0; i < itemsToShow; i++) {
-                        hiddenItems[i].style.display = 'block';
-                        hiddenItems[i].classList.add('visible');
-                    }
-                }
+            // Inicializar la pestaña por defecto cuando el DOM esté listo
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initTab);
+            } else {
+                // DOM ya está listo
+                initTab();
             }
             
-            // Inicializar la carga progresiva cuando el DOM esté completamente cargado
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initProgressiveLoading);
-            } else {
-                initProgressiveLoading();
-            }
+            // Manejar el evento de popstate (navegación atrás/adelante)
+            window.addEventListener('popstate', function(event) {
+                if (event.state && event.state.tab) {
+                    switchTab(event.state.tab);
+                } else {
+                    const hash = window.location.hash.substring(1);
+                    if (hash) {
+                        switchTab(hash);
+                    } else {
+                        // Por defecto, mostrar la primera pestaña
+                        const firstTab = document.querySelector('.tab-button');
+                        if (firstTab) {
+                            const defaultTabId = firstTab.getAttribute('data-tab');
+                            switchTab(defaultTabId);
+                        }
+                    }
+                }
+            });
             
             // Configurar el botón de WhatsApp flotante
             const whatsappBtn = document.querySelector('.whatsapp-float');
@@ -4332,68 +4422,6 @@
         });
     </script>
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Función para inicializar la carga progresiva
-            function initProgressiveLoading() {
-                const grid = document.getElementById('uniformes-y-trabajo-grid');
-                if (!grid) return;
-
-                const cards = grid.querySelectorAll('.product-card');
-                const loadMoreBtn = document.getElementById('load-more-uniformes');
-                const itemsPerLoad = 6;
-                let visibleItems = 15; // Mostrar las primeras 15 tarjetas
-
-                // Ocultar todas las tarjetas inicialmente
-                cards.forEach((card, index) => {
-                    if (index < visibleItems) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                // Mostrar u ocultar el botón según sea necesario
-                function updateButtonVisibility() {
-                    if (visibleItems >= cards.length) {
-                        loadMoreBtn.style.display = 'none';
-                    } else {
-                        loadMoreBtn.style.display = 'inline-flex';
-                    }
-                }
-
-                // Manejar clic en el botón "Ver más"
-                if (loadMoreBtn) {
-                    loadMoreBtn.addEventListener('click', function() {
-                        // Mostrar las siguientes 6 tarjetas
-                        const nextItems = visibleItems + itemsPerLoad;
-                        for (let i = visibleItems; i < nextItems && i < cards.length; i++) {
-                            if (cards[i]) {
-                                cards[i].style.display = 'block';
-                                cards[i].classList.add('fade-in');
-                            }
-                        }
-                        visibleItems = nextItems;
-                        updateButtonVisibility();
-
-                        // Desplazarse suavemente a la primera tarjeta nueva
-                        if (visibleItems > 15) {
-                            const firstNewCard = cards[visibleItems - itemsPerLoad];
-                            if (firstNewCard) {
-                                firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                            }
-                        }
-                    });
-
-                    // Verificar visibilidad inicial
-                    updateButtonVisibility();
-                }
-            }
-
-            // Inicializar la carga progresiva
-            initProgressiveLoading();
-        });
-    </script>
     <style>
         /* Estilos para la animación de las tarjetas */
         .product-card {
@@ -4455,5 +4483,5 @@
             100% { transform: rotate(360deg); }
         }
     </style>
-
-</body></html>
+</body>
+</html>
