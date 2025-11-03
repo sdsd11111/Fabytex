@@ -1,5 +1,5 @@
 {
-  "name": "pagina web",
+  "name": "pagina-web",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,17 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdsd11111/Fabytex.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sdsd11111/Fabytex/issues"
+  },
+  "homepage": "https://github.com/sdsd11111/Fabytex#readme",
+  "dependencies": {
+    "jsdom": "^27.1.0"
+  }
 }

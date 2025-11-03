@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<!DOCTYPE html><html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Fabytex</title>
@@ -221,7 +219,52 @@
             max-width: 1400px;
             width: 100%;
         }
-
+        
+        .load-more-container {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background-color: #ffcc00;
+            color: #001f3f;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .load-more-btn:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .load-more-btn:active {
+            transform: translateY(0);
+        }
+        
+        .load-more-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .load-more-btn.loading i {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         .product-card {
             background: white;
             border-radius: 10px;
@@ -1292,7 +1335,7 @@
     <!-- Hero del Catálogo -->
     <section class="catalog-hero">
         <div class="hero-content">
-            <h1>La Mejor Selección de Moda Femenina en Loja</h1>
+            <h1>La Mejor Selección de Gorros y Mandiles en Loja</h1>
             <p class="hero-subtitle">Calidad superior y precios de fábrica en nuestra exclusiva colección de Vestidos, Jeans, Blusas y Uniformes</p>
         </div>
         <div class="hero-overlay"></div>
@@ -1313,8 +1356,8 @@
                     <span>Todos</span>
                 </button>
                 <button class="tab-button" data-tab="moda-femenina">
-                    <i class="fas fa-female"></i>
-                    <span>Moda Femenina</span>
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Gorros y Mandiles</span>
                 </button>
                 <button class="tab-button" data-tab="uniformes">
                     <i class="fas fa-briefcase"></i>
@@ -1326,11 +1369,15 @@
                 </button>
                 <button class="tab-button" data-tab="deportiva">
                     <i class="fas fa-tshirt"></i>
-                    <span>Deportiva y Pijamería</span>
+                    <span>Ropa Deportiva</span>
                 </button>
                 <button class="tab-button" data-tab="medida">
                     <i class="fas fa-ruler-combined"></i>
                     <span>Confección a Medida</span>
+                </button>
+                <button class="tab-button" data-tab="barber">
+                    <i class="fas fa-cut"></i>
+                    <span>Barber Estética</span>
                 </button>
             </div>
         </div>
@@ -1350,401 +1397,481 @@
             </div>
         </section>
 
-        <!-- Sección de Moda Femenina -->
         <section id="moda-femenina-section" class="product-section">
             <div class="container">
-                <h2 class="section-title">Moda Femenina</h2>
-                <p class="section-subtitle">Descubre nuestra colección de moda para mujer</p>
-                <div class="catalog-grid">
-                    <!-- Chaleco de Mujer -->
-                    <div class="product-card" data-category="moda-femenina">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/moda-femenina-chaleco-de-mujer.jpeg" alt="Chaleco de Mujer" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Chaleco de Mujer</h3>
-                                <p class="product-description">Chaleco de Mujer de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaleco%20de%20Mujer" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
+                <h2 class="section-title">Gorros y Mandiles</h2>
+                <p class="section-subtitle">Descubre nuestra colección de gorros y mandiles de calidad</p>
+                <div class="catalog-grid" id="gorros-mandiles-grid">
+                    <!-- Gorro Quirúrgico Unisex -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorro Quirúrgico Unisex (Pack de Estampados Variados).jpg" alt="Gorro Quirúrgico Unisex" loading="lazy">
                             </div>
                         </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro Quirúrgico Unisex</h3>
+                            <p class="product-description">Pack de gorros quirúrgicos con estampados variados. Ideal para uso médico y hospitalario.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20Quirúrgico%20Unisex" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gorros Quirúrgicos Ajustables -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorros Quirúrgicos Ajustables (Pack de Colores Sólidos, Unisex).jpg" alt="Gorros Quirúrgicos Ajustables" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorros Quirúrgicos Ajustables</h3>
+                            <p class="product-description">Pack de gorros quirúrgicos en colores sólidos. Ajustables y cómodos para largas jornadas.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorros%20Quirúrgicos%20Ajustables" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gorro Quirúrgico Estampado -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorro Quirúrgico Estampado (Diseño ClásicoMarrón).jpg" alt="Gorro Quirúrgico Estampado" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro Quirúrgico Estampado</h3>
+                            <p class="product-description">Gorro quirúrgico con diseño clásico en tono marrón. Ideal para personal médico.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20Quirúrgico%20Estampado" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gorro Quirúrgico Calavera -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorro Quirúrgico Calavera (Estampado Negro, Algodón Exfoliante).jpg" alt="Gorro Quirúrgico Calavera" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro Quirúrgico Calavera</h3>
+                            <p class="product-description">Gorro quirúrgico con estampado de calavera en negro. Hecho en algodón exfoliante.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20Quirúrgico%20Calavera" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gorros Quirúrgicos Día del Médico -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorros Quirúrgicos Día del Médico (Pack de Colores Vivos).jpg" alt="Gorros Quirúrgicos Día del Médico" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorros Día del Médico</h3>
+                            <p class="product-description">Pack de gorros quirúrgicos en colores vivos, ideal para celebraciones del Día del Médico.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorros%20Día%20del%20Médico" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gorro Táctico Multiusos -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Gorro TácticoMultiusos (Estampado Camuflaje, Balaclava).jpg" alt="Gorro Táctico Multiusos" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro Táctico Multiusos</h3>
+                            <p class="product-description">Gorro táctico con estampado camuflaje. Funciona como balaclava y es ideal para actividades al aire libre.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20Táctico%20Multiusos" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Durag de Seda Hip Hop -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Durag de Seda Hip Hop (Cola Larga, Estilo Urbano).jpg" alt="Durag de Seda Hip Hop" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Durag de Seda Hip Hop</h3>
+                            <p class="product-description">Durag de seda con cola larga, ideal para el estilo urbano y cuidado del cabello.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Durag%20de%20Seda%20Hip%20Hop" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Durag de Seda Doble Cola -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Durag de Seda Doble Cola (Banda Biker, Máxima Protección).jpg" alt="Durag de Seda Doble Cola" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Durag de Seda Doble Cola</h3>
+                            <p class="product-description">Durag con doble cola y banda biker, ofrece máxima protección para el cabello.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Durag%20de%20Seda%20Doble%20Cola" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Durag Clásico Unisex -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Durag Clásico Unisex (Poliéster, Ajuste Casual).jpg" alt="Durag Clásico Unisex" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Durag Clásico Unisex</h3>
+                            <p class="product-description">Durag clásico en poliéster con ajuste casual. Ideal para el cuidado diario del cabello.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Durag%20Clásico%20Unisex" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata Sanitaria Blanca -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata Sanitaria Blanca (Corte Estilizado, Detalle en Cuello).jpg" alt="Bata Sanitaria Blanca" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata Sanitaria Blanca</h3>
+                            <p class="product-description">Bata sanitaria blanca con corte estilizado y detalle en cuello. Ideal para profesionales de la salud.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20Sanitaria%20Blanca" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata Sanitaria Básica -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata Sanitaria Básica (Manga Corta, Pack de Colores).jpg" alt="Bata Sanitaria Básica" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata Sanitaria Básica</h3>
+                            <p class="product-description">Pack de batas sanitarias básicas de manga corta en varios colores. Cómodas y prácticas.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20Sanitaria%20Básica" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata Sanitaria Mimi -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata Sanitaria Mimi (Corte Slim, Diseño Femenino).jpg" alt="Bata Sanitaria Mimi" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata Sanitaria Mimi</h3>
+                            <p class="product-description">Bata sanitaria con corte slim y diseño femenino. Ideal para profesionales de la salud con estilo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20Sanitaria%20Mimi" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata Señora Manga Larga -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata Señora Manga Larga (Corte Moderno, Varios Colores).jpg" alt="Bata Señora Manga Larga" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata Señora Manga Larga</h3>
+                            <p class="product-description">Bata de señora con manga larga, corte moderno y disponible en varios colores. Perfecta para el hogar.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20Señora%20Manga%20Larga" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata de Laboratorio Básica -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata de Laboratorio Básica (Blanca, Foto de Referencia).jpg" alt="Bata de Laboratorio Básica" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata de Laboratorio Básica</h3>
+                            <p class="product-description">Bata de laboratorio blanca básica. Ideal para uso en laboratorios y entornos médicos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20de%20Laboratorio%20Básica" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata de Laboratorio Trabajo -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata de LaboratorioTrabajo (Azul Marino, Tallas Grandes).jpg" alt="Bata de Laboratorio Trabajo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata de Laboratorio Trabajo</h3>
+                            <p class="product-description">Bata de laboratorio en azul marino, disponible en tallas grandes. Ideal para largas jornadas de trabajo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20de%20Laboratorio%20Trabajo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata de Trabajo Bicolor -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Bata de Trabajo Bicolor (GrisVerde, Bolsillo Funcional).jpg" alt="Bata de Trabajo Bicolor" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Bata de Trabajo Bicolor</h3>
+                            <p class="product-description">Bata de trabajo en tonos gris y verde con bolsillo funcional. Práctica y resistente.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Bata%20de%20Trabajo%20Bicolor" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta Sanitaria Cremallera -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Chaqueta Sanitaria Cremallera (Azul Rey, Tela Strech).jpg" alt="Chaqueta Sanitaria Cremallera" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaqueta Sanitaria Cremallera</h3>
+                            <p class="product-description">Chaqueta sanitaria en azul rey con cierre de cremallera. Confeccionada en tela stretch para mayor comodidad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaqueta%20Sanitaria%20Cremallera" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta Sanitaria Unisex -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Chaqueta Sanitaria Unisex (Blanca, Corte Moderno).jpg" alt="Chaqueta Sanitaria Unisex" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaqueta Sanitaria Unisex</h3>
+                            <p class="product-description">Chaqueta sanitaria blanca con corte moderno. Diseño unisex para profesionales de la salud.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaqueta%20Sanitaria%20Unisex" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Uniforme Sanitario Bicolor -->
+                    <div class="product-card" data-category="gorros-mandiles">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/gorros y mandiles/Uniforme Sanitario Bicolor (ÓpticasFarmacias, NegroNaranja).jpg" alt="Uniforme Sanitario Bicolor" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Uniforme Sanitario Bicolor</h3>
+                            <p class="product-description">Uniforme sanitario en combinación negro y naranja. Ideal para ópticas y farmacias.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniforme%20Sanitario%20Bicolor" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bata Sanitaria Blanca 2 -->
+                    
+                    <!-- Gorro Quirúrgico Unisex -->
+                    
+
+                    <!-- Gorros Quirúrgicos Ajustables -->
+                    
+
+                    <!-- Gorro Quirúrgico Estampado -->
+                    
+
+                    <!-- Gorro Quirúrgico Calavera -->
+                    
+
+                    <!-- Gorros Quirúrgicos Día del Médico -->
+                    
+
+                    <!-- Gorro Táctico Multiusos -->
+                    
+
+                    <!-- Durag de Seda Hip Hop -->
+                    
+
+                    <!-- Durag de Seda Doble Cola -->
+                    
+
+                    <!-- Durag Clásico Unisex -->
+                    
+
+                    <!-- Bata Sanitaria Blanca -->
+                    
+
+                    <!-- Bata Sanitaria Básica -->
+                    
+
+                    <!-- Bata Sanitaria Mimi -->
+                    
+
+                    <!-- Bata Señora Manga Larga -->
+                    
+
+                    <!-- Bata de Laboratorio Básica -->
+                    
+
+                    <!-- Bata de Laboratorio Trabajo -->
+                    
+
+                    <!-- Bata de Trabajo Bicolor -->
+                    
+
+                    <!-- Chaqueta Sanitaria Cremallera -->
+                    
+
+                    <!-- Chaqueta Sanitaria Unisex -->
+                    
+
+                    <!-- Uniforme Sanitario Bicolor -->
+                    
 <!-- Chaleco -->
-                        <div class="product-card" data-category="moda-femenina">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/moda-femenina-chaleco.jpeg" alt="Chaleco" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Chaleco</h3>
-                                <p class="product-description">Chaleco de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaleco" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Detalles -->
-                        <div class="product-card" data-category="moda-femenina">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/moda-femenina-detalles.jpeg" alt="Detalles" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Detalles</h3>
-                                <p class="product-description">Detalles de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Detalles" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Distintos Trabajos -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-distintos-trabajos.jpeg" alt="Distintos Trabajos" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Distintos Trabajos</h3>
-                                <p class="product-description">Distintos Trabajos de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Distintos%20Trabajos" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Estilista -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-estilista.jpeg" alt="Estilista" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Estilista</h3>
-                                <p class="product-description">Estilista de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Estilista" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Municipio -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-municipio.jpeg" alt="Municipio" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Municipio</h3>
-                                <p class="product-description">Municipio de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Municipio" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Otros Trabajos -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-otros-trabajos.jpeg" alt="Otros Trabajos" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Otros Trabajos</h3>
-                                <p class="product-description">Otros Trabajos de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Otros%20Trabajos" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Peluquera -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-peluquera.jpeg" alt="Peluquera" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Peluquera</h3>
-                                <p class="product-description">Peluquera de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Peluquera" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Todo Tapado Azul -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-todo-tapado-azul.jpeg" alt="Todo Tapado Azul" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Todo Tapado Azul</h3>
-                                <p class="product-description">Todo Tapado Azul de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Todo%20Tapado%20Azul" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Todo Tapado Rojo -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-todo-tapado-rojo.jpeg" alt="Todo Tapado Rojo" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Todo Tapado Rojo</h3>
-                                <p class="product-description">Todo Tapado Rojo de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Todo%20Tapado%20Rojo" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Trabajo Manuales -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-trabajo-manuales.jpeg" alt="Trabajo Manuales" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Trabajo Manuales</h3>
-                                <p class="product-description">Trabajo Manuales de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Trabajo%20Manuales" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Uniforme Escolar -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-uniforme-escolar.jpeg" alt="Uniforme Escolar" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Uniforme Escolar</h3>
-                                <p class="product-description">Uniforme Escolar de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniforme%20Escolar" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Veterinaria -->
-                        <div class="product-card" data-category="uniformes-y-trabajo">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/uniformes-y-trabajo-veterinaria.jpeg" alt="Veterinaria" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Veterinaria</h3>
-                                <p class="product-description">Veterinaria de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Veterinaria" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Trajes Medicos y de Enfermeria loja -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/Trajes Medicos y de Enfermeria Loja.jpg" alt="Trajes Medicos y de Enfermeria loja" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Trajes Medicos y de Enfermeria loja</h3>
-                                <p class="product-description">Trajes Medicos y de Enfermeria loja de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Trajes%20Medicos%20y%20de%20Enfermeria%20loja" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Manga Corta -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-manga-corta.jpeg" alt="Manga Corta" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Manga Corta</h3>
-                                <p class="product-description">Manga Corta de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Manga%20Corta" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Odontologo -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-odontologo.jpeg" alt="Odontologo" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Odontologo</h3>
-                                <p class="product-description">Odontologo de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Odontologo" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Para Hombres -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-para-hombres.jpeg" alt="Para Hombres" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Para Hombres</h3>
-                                <p class="product-description">Para Hombres de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Hombres" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Para Mujeres Blanco -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-para-mujeres-blanco.jpeg" alt="Para Mujeres Blanco" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Para Mujeres Blanco</h3>
-                                <p class="product-description">Para Mujeres Blanco de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres%20Blanco" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Para Mujeres Cafe -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-para-mujeres-cafe.jpeg" alt="Para Mujeres Cafe" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Para Mujeres Cafe</h3>
-                                <p class="product-description">Para Mujeres Cafe de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres%20Cafe" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Para Mujeres Odontologia -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-para-mujeres-odontologia.jpeg" alt="Para Mujeres Odontologia" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Para Mujeres Odontologia</h3>
-                                <p class="product-description">Para Mujeres Odontologia de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres%20Odontologia" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 <!-- Para Mujeres -->
-                        <div class="product-card" data-category="indumentaria-medica">
-                            <div class="product-header">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-image">
-                                    <img src="images/catalogo/indumentaria-medica-para-mujeres.jpeg" alt="Para Mujeres" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="product-body">
-                                <h3 class="product-title">Para Mujeres</h3>
-                                <p class="product-description">Para Mujeres de alta calidad. Contáctanos para más información sobre este producto.</p>
-                                <div class="product-actions">
-                                    <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Mujeres" class="btn btn-primary" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
 
             </div>
-        </section>
+        </div></section>
 
-        <!-- Sección de Moda Femenina -->
+        <!-- Sección de Gorros y Mandiles -->
         
-        <!-- Sección de Moda Femenina -->
+        <!-- Sección de Gorros y Mandiles -->
         <section id="moda-femenina-section" class="product-section">
             <div class="container">
-                <h2 class="section-title">Moda Femenina</h2>
-                <p class="section-subtitle">Descubre nuestra colección de moda para mujer</p>
+                <h2 class="section-title">Gorros y Mandiles</h2>
+                <p class="section-subtitle">Descubre nuestra colección de gorros y mandiles de calidad</p>
                 <div class="catalog-grid" id="moda-femenina-grid">
 <!-- Chaleco de Mujer -->
                     <div class="product-card" data-category="moda-femenina">
@@ -1805,14 +1932,12 @@
         </section>
 
         <!-- Sección de Uniformes y Trabajo -->
-        
-        <!-- Sección de Uniformes y Trabajo -->
         <section id="uniformes-section" class="product-section">
             <div class="container">
                 <h2 class="section-title">Uniformes y Trabajo</h2>
                 <p class="section-subtitle">Ropa de trabajo duradera y profesional</p>
                 <div class="catalog-grid" id="uniformes-y-trabajo-grid">
-<!-- Distintos Trabajos -->
+                    <!-- Distintos Trabajos -->
                     <div class="product-card" data-category="uniformes-y-trabajo">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
@@ -1822,9 +1947,388 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-title">Distintos Trabajos</h3>
-                            <p class="product-description">Distintos Trabajos de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <p class="product-description">Diversos uniformes para diferentes profesiones. Calidad y comodidad para cada necesidad laboral.</p>
                             <div class="product-actions">
                                 <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Distintos%20Trabajos" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estilista -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-estilista.jpeg" alt="Estilista" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Estilista</h3>
+                            <p class="product-description">Ropa profesional para estilistas. Diseño cómodo y funcional para largas jornadas de trabajo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20uniforme%20de%20Estilista" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Municipio -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-municipio.jpeg" alt="Municipio" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Municipio</h3>
+                            <p class="product-description">Uniformes institucionales para personal municipal. Elegancia y profesionalismo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20uniformes%20para%20Municipio" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Otros Trabajos -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-otros-trabajos.jpeg" alt="Otros Trabajos" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Otros Trabajos</h3>
+                            <p class="product-description">Variedad de uniformes para diferentes tipos de trabajos. Calidad y durabilidad garantizada.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20otros%20trabajos" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Peluquera -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-peluquera.jpeg" alt="Peluquera" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Peluquera</h3>
+                            <p class="product-description">Uniformes cómodos y estilizados para peluqueros profesionales. Diseño moderno y funcional.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20uniforme%20de%20Peluquera" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Todo Tapado Azul -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-todo-tapado-azul.jpeg" alt="Todo Tapado Azul" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Todo Tapado Azul</h3>
+                            <p class="product-description">Abrigo completo en color azul para protección contra el frío. Ideal para trabajos al aire libre.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Todo%20Tapado%20Azul" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Todo Tapado Rojo -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-todo-tapado-rojo.jpeg" alt="Todo Tapado Rojo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Todo Tapado Rojo</h3>
+                            <p class="product-description">Abrigo completo en color rojo para máxima visibilidad y protección contra el frío.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Todo%20Tapado%20Rojo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trabajo Manuales -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-trabajo-manuales.jpeg" alt="Trabajo Manuales" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Trabajo Manuales</h3>
+                            <p class="product-description">Robustos uniformes para trabajos manuales. Resistencia y comodidad para el trabajo duro.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20uniformes%20para%20Trabajo%20Manuales" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Uniforme Escolar -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-uniforme-escolar.jpeg" alt="Uniforme Escolar" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Uniforme Escolar</h3>
+                            <p class="product-description">Elegantes uniformes escolares. Calidad y comodidad para los más pequeños.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20uniformes%20escolares" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Veterinaria -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/catalogo/uniformes-y-trabajo-veterinaria.jpeg" alt="Veterinaria" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Veterinaria</h3>
+                            <p class="product-description">Uniformes profesionales para clínicas veterinarias. Higiénicos y fáciles de limpiar.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20uniformes%20para%20Veterinaria" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buzo de Protección Ignífugo -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Buzo de Protección Ignífugo.jpg" alt="Buzo de Protección Ignífugo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Buzo de Protección Ignífugo</h3>
+                            <p class="product-description">Protección térmica de alta resistencia para trabajos de riesgo. Material resistente a altas temperaturas.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Buzo%20de%20Protección%20Ignífugo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buzo/Mono de Trabajo -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Destacado</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/BuzoMono de Trabajo.jpg" alt="Buzo/Mono de Trabajo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Buzo/Mono de Trabajo</h3>
+                            <p class="product-description">Diseño clásico y funcional para todo tipo de trabajos. Alta durabilidad y comodidad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Buzo/Mono%20de%20Trabajo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Acolchado Bicolor -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Acolchado Bicolor.jpg" alt="Chaleco Acolchado Bicolor" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Acolchado Bicolor</h3>
+                            <p class="product-description">Abrigo ligero y cálido con diseño moderno. Ideal para climas fríos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Acolchado%20Bicolor" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Alta Visibilidad 3M -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Seguridad</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Alta Visibilidad 3M.jpg" alt="Chaleco Alta Visibilidad 3M" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Alta Visibilidad 3M</h3>
+                            <p class="product-description">Protección de alta visibilidad con cintas reflectantes 3M. Ideal para trabajos en carretera.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Alta%20Visibilidad%203M" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Multibolsillos Acolchado -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Multibolsillos Acolchado.jpg" alt="Chaleco Multibolsillos Acolchado" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Multibolsillos</h3>
+                            <p class="product-description">Diseño práctico con múltiples bolsillos. Acolchado para mayor comodidad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Multibolsillos%20Acolchado" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Polar Antifrío -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Abrigado</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Polar Antifrio.jpg" alt="Chaleco Polar Antifrío" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Polar Antifrío</h3>
+                            <p class="product-description">Aislamiento térmico de alta calidad. Ideal para trabajos en ambientes fríos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Polar%20Antifrío" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Reflectante Pro -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Seguridad</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Reflectante Pro.jpg" alt="Chaleco Reflectante Pro" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Reflectante Pro</h3>
+                            <p class="product-description">Máxima visibilidad con bandas reflectantes de alta intensidad. Cumple con normativas de seguridad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Reflectante%20Pro" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Táctico -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Táctico</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Táctico.jpg" alt="Chaleco Táctico" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Táctico</h3>
+                            <p class="product-description">Diseño táctico con múltiples compartimentos. Ideal para trabajos de campo y seguridad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Táctico" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco Térmico Náutico -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Náutico</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco Térmico Náutico (.jpg" alt="Chaleco Térmico Náutico" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco Térmico Náutico</h3>
+                            <p class="product-description">Protección térmica para trabajos en el mar. Resistente al agua y al viento.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20Térmico%20Náutico" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaleco de Malla de Seguridad -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Seguridad</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaleco de Malla de Seguridad.jpg" alt="Chaleco de Malla de Seguridad" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaleco de Malla de Seguridad</h3>
+                            <p class="product-description">Transpirable y ligero. Ideal para trabajos en climas cálidos que requieren alta visibilidad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20el%20Chaleco%20de%20Malla%20de%20Seguridad" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta Acolchada Bicolor -->
+                    <div class="product-card" data-category="uniformes-y-trabajo">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/uniformes y trabajos/Chaqueta Acolchada Bicolor.jpg" alt="Chaqueta Acolchada Bicolor" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chaqueta Acolchada Bicolor</h3>
+                            <p class="product-description">Diseño moderno con acolchado térmico. Perfecta para el invierno.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20la%20Chaqueta%20Acolchada%20Bicolor" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
@@ -2130,21 +2634,651 @@
                             </div>
                         </div>
                     </div>
-<!-- Para Mujeres --></div>
+<!-- Para Mujeres -->
+<!-- Blusa Médica Manga Larga -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Blusa Médica Manga Larga (Azul Marino, Protección Total).jpg" alt="Blusa Médica Manga Larga" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Blusa Médica Manga Larga</h3>
+                            <p class="product-description">Blusa Médica Manga Larga de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Blusa%20Médica%20Manga%20Larga" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Camisa de paciente Temática -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Camisa de paciente Temática (Hello Kitty, Estilizada).jpg" alt="Camisa de paciente Temática" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Camisa de paciente Temática</h3>
+                            <p class="product-description">Camisa de paciente Temática de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Camisa%20de%20paciente%20Temática" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Conjunto Deportivo HeartSoul -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Conjunto Deportivo HeartSoul (Bicolor, Máximo Rendimiento).jpg" alt="Conjunto Deportivo HeartSoul" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto Deportivo HeartSoul</h3>
+                            <p class="product-description">Conjunto Deportivo HeartSoul de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20Deportivo%20HeartSoul" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Conjunto Médico Confort -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Conjunto Médico Confort (Túnica y Pantalón Rojos).jpg" alt="Conjunto Médico Confort" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto Médico Confort</h3>
+                            <p class="product-description">Conjunto Médico Confort de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20Médico%20Confort" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Conjunto de Scrub Básico -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Conjunto de Scrub Básico (Gris, Tela Doble Stretch).jpg" alt="Conjunto de Scrub Básico" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto de Scrub Básico</h3>
+                            <p class="product-description">Conjunto de Scrub Básico de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20de%20Scrub%20Básico" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Butter-Soft -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Butter-Soft (Cuello Mandarín, Rosa Intenso).jpg" alt="Filipina Butter-Soft" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Butter-Soft</h3>
+                            <p class="product-description">Filipina Butter-Soft de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Butter-Soft" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Cherokee TF624 -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Cherokee TF624 (Estampado Abstracto).jpg" alt="Filipina Cherokee TF624" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Cherokee TF624</h3>
+                            <p class="product-description">Filipina Cherokee TF624 de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Cherokee%20TF624" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Clásica Verde Esmeralda -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Clásica Verde Esmeralda (Cuello V, Alta Durabilidad).jpg" alt="Filipina Clásica Verde Esmeralda" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Clásica Verde Esmeralda</h3>
+                            <p class="product-description">Filipina Clásica Verde Esmeralda de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Clásica%20Verde%20Esmeralda" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Cuello V Reversible -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Cuello V Reversible (Estampado Batman, Funcional).jpg" alt="Filipina Cuello V Reversible" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Cuello V Reversible</h3>
+                            <p class="product-description">Filipina Cuello V Reversible de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Cuello%20V%20Reversible" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Dibujo animado -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Dibujo animado (Estampado Suave, Fondo Rosa).jpg" alt="Filipina Dibujo animado" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Dibujo animado</h3>
+                            <p class="product-description">Filipina Dibujo animado de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Dibujo%20animado" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Diseño Exclusivo -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Diseño Exclusivo (Colección Designer Scrubs).jpg" alt="Filipina Diseño Exclusivo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Diseño Exclusivo</h3>
+                            <p class="product-description">Filipina Diseño Exclusivo de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Diseño%20Exclusivo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Disney Estampada -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Disney Estampada (Colección Uniform Advantage).jpg" alt="Filipina Disney Estampada" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Disney Estampada</h3>
+                            <p class="product-description">Filipina Disney Estampada de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Disney%20Estampada" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampada Clásica -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampada Clásica (Fondo Negro, Cuello V).jpg" alt="Filipina Estampada Clásica" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampada Clásica</h3>
+                            <p class="product-description">Filipina Estampada Clásica de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampada%20Clásica" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampada Premium -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampada Premium (Alto Contraste y Calidad).jpg" alt="Filipina Estampada Premium" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampada Premium</h3>
+                            <p class="product-description">Filipina Estampada Premium de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampada%20Premium" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampada con Botones -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampada con Botones (Cuello V, Estilo Moderno).jpg" alt="Filipina Estampada con Botones" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampada con Botones</h3>
+                            <p class="product-description">Filipina Estampada con Botones de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampada%20con%20Botones" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampado Abstracto -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampado Abstracto (Diseño en Tonos Azules).jpg" alt="Filipina Estampado Abstracto" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampado Abstracto</h3>
+                            <p class="product-description">Filipina Estampado Abstracto de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampado%20Abstracto" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampado Floral Gris -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampado Floral Gris (Cuello Y).jpg" alt="Filipina Estampado Floral Gris" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampado Floral Gris</h3>
+                            <p class="product-description">Filipina Estampado Floral Gris de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampado%20Floral%20Gris" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampado Mercari -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampado Mercari (Motivos Oscuros, Estilo Urbano).jpg" alt="Filipina Estampado Mercari" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampado Mercari</h3>
+                            <p class="product-description">Filipina Estampado Mercari de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampado%20Mercari" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampado TF-663 -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampado TF-663 (Tonos Azules, Comodidad Máxima).jpg" alt="Filipina Estampado TF-663" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampado TF-663</h3>
+                            <p class="product-description">Filipina Estampado TF-663 de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampado%20TF-663" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Estampado Vibrante TF-624 -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Estampado Vibrante TF-624 (Cuello V, Diseño Floral).jpg" alt="Filipina Estampado Vibrante TF-624" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Estampado Vibrante TF-624</h3>
+                            <p class="product-description">Filipina Estampado Vibrante TF-624 de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Estampado%20Vibrante%20TF-624" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Floral Rosado -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Floral Rosado (Estampado Suave, Fondo Rosa).jpg" alt="Filipina Floral Rosado" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Floral Rosado</h3>
+                            <p class="product-description">Filipina Floral Rosado de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Floral%20Rosado" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Infinity Scrubs -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Infinity Scrubs (Cuello V, Diseño Ergonómico).jpg" alt="Filipina Infinity Scrubs" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Infinity Scrubs</h3>
+                            <p class="product-description">Filipina Infinity Scrubs de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Infinity%20Scrubs" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Minie Mouse -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Minie Mouse (Estampado Suave, Fondo Rosa).jpg" alt="Filipina Minie Mouse" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Minie Mouse</h3>
+                            <p class="product-description">Filipina Minie Mouse de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Minie%20Mouse" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Mujer Maravilla -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Mujer Maravilla (Edición Especial, Talla Ajustada).jpg" alt="Filipina Mujer Maravilla" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Mujer Maravilla</h3>
+                            <p class="product-description">Filipina Mujer Maravilla de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Mujer%20Maravilla" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Negra de Tirantes -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Negra de Tirantes (Corte Estilizado, Estilo Urbano).jpg" alt="Filipina Negra de Tirantes" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Negra de Tirantes</h3>
+                            <p class="product-description">Filipina Negra de Tirantes de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Negra%20de%20Tirantes" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipina Tooniforms Spiderman -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipina Tooniforms Spiderman (Cuello V, Estilo Lúdico).jpg" alt="Filipina Tooniforms Spiderman" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipina Tooniforms Spiderman</h3>
+                            <p class="product-description">Filipina Tooniforms Spiderman de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipina%20Tooniforms%20Spiderman" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipinas Estampadas Fun -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipinas Estampadas Fun (Corte Moderno, Fondo Negro).jpg" alt="Filipinas Estampadas Fun" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipinas Estampadas Fun</h3>
+                            <p class="product-description">Filipinas Estampadas Fun de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipinas%20Estampadas%20Fun" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Filipinas Estampadas Vintage -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Filipinas Estampadas Vintage (Cuello V, Corte Clásico).jpg" alt="Filipinas Estampadas Vintage" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Filipinas Estampadas Vintage</h3>
+                            <p class="product-description">Filipinas Estampadas Vintage de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Filipinas%20Estampadas%20Vintage" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Gorro Quirúrgico Cherokee -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Gorro Quirúrgico Cherokee (Estampado Abstracto).jpg" alt="Gorro Quirúrgico Cherokee" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro Quirúrgico Cherokee</h3>
+                            <p class="product-description">Gorro Quirúrgico Cherokee de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20Quirúrgico%20Cherokee" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Gorro floral -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Gorro floral.jpg" alt="Gorro floral" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro floral</h3>
+                            <p class="product-description">Gorro floral de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20floral" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Gorro rojo -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Gorro rojo.jpg" alt="Gorro rojo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorro rojo</h3>
+                            <p class="product-description">Gorro rojo de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorro%20rojo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Gorros Quirúrgicos Pack -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Gorros Quirúrgicos Pack (Estampados Profesionales).jpg" alt="Gorros Quirúrgicos Pack" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Gorros Quirúrgicos Pack</h3>
+                            <p class="product-description">Gorros Quirúrgicos Pack de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Gorros%20Quirúrgicos%20Pack" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Pantalón Jogger TENCEL™ Catalina -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Pantalón Jogger TENCEL™ Catalina (Ajuste Moderno, Venta Final).jpg" alt="Pantalón Jogger TENCEL™ Catalina" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Pantalón Jogger TENCEL™ Catalina</h3>
+                            <p class="product-description">Pantalón Jogger TENCEL™ Catalina de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pantalón%20Jogger%20TENCEL™%20Catalina" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Pijama Quirúrgica Estampada -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Pijama Quirúrgica Estampada (Diseño Abstracto de Colores).jpg" alt="Pijama Quirúrgica Estampada" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Pijama Quirúrgica Estampada</h3>
+                            <p class="product-description">Pijama Quirúrgica Estampada de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pijama%20Quirúrgica%20Estampada" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Scrub Performance Femenino -->
+                    <div class="product-card" data-category="indumentaria-medica">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa medica/Scrub Performance Femenino (Básico, Comodidad Superior).jpg" alt="Scrub Performance Femenino" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Scrub Performance Femenino</h3>
+                            <p class="product-description">Scrub Performance Femenino de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Scrub%20Performance%20Femenino" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div></div>
             </div>
         </section>
 
-        <!-- Sección de Deportiva y Pijamería -->
+        <!-- Sección de Ropa Deportiva -->
         
         
-        <!-- Sección de Ropa Deportiva y Pijamería -->
+        <!-- Sección de Ropa Deportiva -->
         <section id="deportiva-section" class="product-section">
             <div class="container">
-                <h2 class="section-title">Ropa Deportiva y Pijamería</h2>
-                <p class="section-subtitle">Comodidad para estar activo o relajado</p>
+                <h2 class="section-title">Ropa Deportiva</h2>
+                <p class="section-subtitle">Comodidad para estar activo</p>
                 <div class="catalog-grid" id="deportiva-y-pijameria-grid">
 <!-- Outfits de Yoga y Gimnasio loja -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+                    <div class="product-card" data-category="deportiva">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
@@ -2161,73 +3295,362 @@
                             </div>
                         </div>
                     </div>
-<!-- Chaleco Deportivo -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+
+<!-- Chaqueta Deportiva Cremallera -->
+                    <div class="product-card" data-category="deportiva">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-chaleco-deportivo.jpeg" alt="Chaleco Deportivo" loading="lazy">
+                                <img src="images/ropa deportiva/Chaqueta Deportiva Cremallera (Hombre, Bicolor, Diseño Activo).jpg" alt="Chaqueta Deportiva Cremallera" loading="lazy">
                             </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-title">Chaleco Deportivo</h3>
-                            <p class="product-description">Chaleco Deportivo de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <h3 class="product-title">Chaqueta Deportiva Cremallera</h3>
+                            <p class="product-description">Chaqueta deportiva con cremallera para hombre, diseño bicolor y activo. Ideal para entrenamientos al aire libre.</p>
                             <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaleco%20Deportivo" class="btn btn-primary" target="_blank">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chaqueta%20Deportiva%20Cremallera" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
                         </div>
                     </div>
-<!-- Para Hombres Camisetas -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+
+<!-- Chándal Térmico Deportivo -->
+                    <div class="product-card" data-category="deportiva">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-para-hombres-camisetas.jpeg" alt="Para Hombres Camisetas" loading="lazy">
+                                <img src="images/ropa deportiva/Chándal Térmico Deportivo (Unisex, Colores Neutros).jpg" alt="Chándal Térmico Deportivo" loading="lazy">
                             </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-title">Para Hombres Camisetas</h3>
-                            <p class="product-description">Para Hombres Camisetas de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <h3 class="product-title">Chándal Térmico Deportivo</h3>
+                            <p class="product-description">Chándal térmico unisex en colores neutros. Perfecto para mantener el calor durante el ejercicio en climas fríos.</p>
                             <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Hombres%20Camisetas" class="btn btn-primary" target="_blank">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chándal%20Térmico%20Deportivo" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
                         </div>
                     </div>
-<!-- Para Hombres -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+
+<!-- Chándal de Entrenamiento Gris y Neón -->
+                    <div class="product-card" data-category="deportiva">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria-para-hombres.jpeg" alt="Para Hombres" loading="lazy">
+                                <img src="images/ropa deportiva/Chándal de Entrenamiento (Gris y Neón, Diseño Técnico).jpg" alt="Chándal de Entrenamiento Gris y Neón" loading="lazy">
                             </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-title">Para Hombres</h3>
-                            <p class="product-description">Para Hombres de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <h3 class="product-title">Chándal de Entrenamiento Gris y Neón</h3>
+                            <p class="product-description">Chándal de entrenamiento con diseño técnico en colores gris y neón. Ideal para destacar en tus entrenamientos.</p>
                             <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Para%20Hombres" class="btn btn-primary" target="_blank">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chándal%20de%20Entrenamiento%20Gris%20y%20Neón" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
                         </div>
                     </div>
-<!--  -->
-                    <div class="product-card" data-category="deportiva-y-pijameria">
+
+<!-- Conjunto Deportivo Femenino -->
+                    <div class="product-card" data-category="deportiva">
                         <div class="product-header">
                             <div class="product-badge">Nuevo</div>
                             <div class="product-image">
-                                <img src="images/catalogo/deportiva-y-pijameria.jpg" alt="" loading="lazy">
+                                <img src="images/ropa deportiva/Conjunto Deportivo Femenino (Licra y Sudadera, Ajuste Slim).jpg" alt="Conjunto Deportivo Femenino" loading="lazy">
                             </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-title"></h3>
-                            <p class="product-description"> de alta calidad. Contáctanos para más información sobre este producto.</p>
+                            <h3 class="product-title">Conjunto Deportivo Femenino</h3>
+                            <p class="product-description">Conjunto deportivo para mujer en licra y sudadera con ajuste slim. Diseño cómodo y moderno para el gimnasio.</p>
                             <div class="product-actions">
-                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20" class="btn btn-primary" target="_blank">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20Deportivo%20Femenino" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Conjunto Deportivo Polar -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Conjunto Deportivo Polar (Unisex, Capucha y Chamarra).jpg" alt="Conjunto Deportivo Polar" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto Deportivo Polar</h3>
+                            <p class="product-description">Conjunto deportivo polar unisex con capucha y chamarra. Ideal para entrenamientos en climas fríos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20Deportivo%20Polar" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Conjunto Deportivo Urbano -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Conjunto Deportivo Urbano (Chaqueta y Pantalón, Estilo Moderno).jpg" alt="Conjunto Deportivo Urbano" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto Deportivo Urbano</h3>
+                            <p class="product-description">Conjunto deportivo urbano con chaqueta y pantalón en estilo moderno. Perfecto para combinar moda y comodidad.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20Deportivo%20Urbano" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Conjunto de Sudadera Corta -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Conjunto de Sudadera Corta (Dama, Chándal con 3 Rayas).jpg" alt="Conjunto de Sudadera Corta" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Conjunto de Sudadera Corta</h3>
+                            <p class="product-description">Conjunto de sudadera corta para mujer con diseño de chándal y 3 rayas. Ideal para un look deportivo y cómodo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Conjunto%20de%20Sudadera%20Corta" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Pack de Accesorios Nike -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Pack de Accesorios Nike (Gorra y Bandana Deportiva).jpg" alt="Pack de Accesorios Nike" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Pack de Accesorios Nike</h3>
+                            <p class="product-description">Pack de accesorios Nike que incluye gorra y bandana deportiva. Complementa tu look deportivo con estilo.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pack%20de%20Accesorios%20Nike" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Pack de Polos Básicos -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Pack de Polos Básicos (Colores Vibrantes, Unisex).jpg" alt="Pack de Polos Básicos" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Pack de Polos Básicos</h3>
+                            <p class="product-description">Pack de polos básicos en colores vibrantes, diseño unisex. Perfecto para entrenamientos diarios.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pack%20de%20Polos%20Básicos" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Pack de Polos Deportivos Puma -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Pack de Polos Deportivos (Puma, Estampado Clásico).jpg" alt="Pack de Polos Deportivos Puma" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Pack de Polos Deportivos Puma</h3>
+                            <p class="product-description">Pack de polos deportivos Puma con estampado clásico. Calidad y comodidad para tu rutina deportiva.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Pack%20de%20Polos%20Deportivos%20Puma" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Polo Básico Bicolor -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Polo Básico Bicolor (Dama, Varios Colores).jpg" alt="Polo Básico Bicolor Dama" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Polo Básico Bicolor Dama</h3>
+                            <p class="product-description">Polo básico bicolor para mujer, disponible en varios colores. Diseño cómodo y versátil para el día a día.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Polo%20Básico%20Bicolor%20Dama" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Polo Casual Piqué -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Polo Casual Piqué (Dama, Manga Corta, Bicolor).jpg" alt="Polo Casual Piqué Dama" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Polo Casual Piqué Dama</h3>
+                            <p class="product-description">Polo casual en tejido piqué para mujer, manga corta y diseño bicolor. Ideal para un look deportivo y fresco.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Polo%20Casual%20Piqué%20Dama" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Polo Deportivo Bicolor -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Polo Deportivo Bicolor (Hombre, Cremallera Media).jpg" alt="Polo Deportivo Bicolor Hombre" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Polo Deportivo Bicolor Hombre</h3>
+                            <p class="product-description">Polo deportivo para hombre en diseño bicolor con cremallera media. Perfecto para entrenamientos intensos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Polo%20Deportivo%20Bicolor%20Hombre" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Polo Hombre Clásico -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Polo Hombre Clásico (Bordado, Manga Corta, Azul Marino).jpg" alt="Polo Hombre Clásico" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Polo Hombre Clásico</h3>
+                            <p class="product-description">Polo clásico para hombre con bordado, manga corta en color azul marino. Elegancia y comodidad en uno.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Polo%20Hombre%20Clásico" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Polo Hombre Elegance -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Polo Hombre Elegance (Estampado Contraste, Blanco).jpg" alt="Polo Hombre Elegance" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Polo Hombre Elegance</h3>
+                            <p class="product-description">Polo de hombre en color blanco con estampado de contraste. Diseño elegante para ocasiones especiales.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Polo%20Hombre%20Elegance" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Uniforme de Fútbol Completo -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Uniforme de Fútbol Completo (Camiseta y Pantalón con Medias).jpg" alt="Uniforme de Fútbol Completo" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Uniforme de Fútbol Completo</h3>
+                            <p class="product-description">Uniforme completo de fútbol que incluye camiseta, pantalón y medias. Ideal para partidos y entrenamientos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniforme%20de%20Fútbol%20Completo" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Uniforme de Fútbol Sublimado -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Uniforme de Fútbol Sublimado (Manga Corta, Diseño Moderno).jpg" alt="Uniforme de Fútbol Sublimado" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Uniforme de Fútbol Sublimado</h3>
+                            <p class="product-description">Uniforme de fútbol sublimado con manga corta y diseño moderno. Tecnología de secado rápido.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniforme%20de%20Fútbol%20Sublimado" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Chándal de Entrenamiento Unisex -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Chándal de Entrenamiento (Unisex, Bicolor, Versátil).jpg" alt="Chándal de Entrenamiento Unisex" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chándal de Entrenamiento Unisex</h3>
+                            <p class="product-description">Chándal de entrenamiento unisex en diseño bicolor y versátil. Perfecto para cualquier actividad física.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chándal%20de%20Entrenamiento%20Unisex" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Chándal de Invierno -->
+                    <div class="product-card" data-category="deportiva">
+                        <div class="product-header">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-image">
+                                <img src="images/ropa deportiva/Chándal de Invierno (Hombre, Capucha y Diseño Táctico).jpg" alt="Chándal de Invierno Hombre" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Chándal de Invierno Hombre</h3>
+                            <p class="product-description">Chándal de invierno para hombre con capucha y diseño táctico. Abrigado y resistente para climas fríos.</p>
+                            <div class="product-actions">
+                                <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Chándal%20de%20Invierno%20Hombre" class="btn btn-primary" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                                 </a>
                             </div>
@@ -2389,8 +3812,208 @@
                     </div>
                 </div>
             </div>
-        </section></section></section>
-    </main>
+        </section>
+    </div></main>
+
+    <!-- Sección de Barber Estética -->
+    <section id="barber-section" class="product-section">
+        <div class="container">
+            <h2 class="section-title">Barber Estética</h2>
+            <p class="section-subtitle">Ropa profesional para barberos y estilistas</p>
+            
+            <div class="catalog-grid">
+                <!-- Barber Clothing -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Barber Clothing.jpg" alt="Barber Clothing" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Barber Clothing</h3>
+                        <p class="product-description">Elegante y profesional, ideal para barberos que buscan estilo y comodidad en su trabajo diario.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Barber%20Clothing" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catálogo Exclusivo -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Catálogo Exclusivo Vestuario Profesional de Lujo para la Belleza.jpg" alt="Vestuario Profesional de Lujo" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Vestuario de Lujo</h3>
+                        <p class="product-description">Colección exclusiva de alta gama para profesionales que buscan lo mejor en indumentaria.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Vestuario%20de%20Lujo" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comodidad y Distinción -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Comodidad y Distinción La Colección de Uniformes que tu Negocio Necesita.jpg" alt="Colección de Uniformes" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Colección de Uniformes</h3>
+                        <p class="product-description">La combinación perfecta entre comodidad y estilo profesional para tu negocio.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20la%20Colección%20de%20Uniformes" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Embroidered -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Custom Embroidered Beauty Tunic_ Salon &amp; Spa Workwear.jpg" alt="Túnicas Bordadas" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Túnicas Bordadas</h3>
+                        <p class="product-description">Túnicas personalizables para salón y spa, con bordados de alta calidad.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Túnicas%20Bordadas" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KIRIOS Barber Smock -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/KIRIOS Barber Smock_ Dark Green, Yellow Stripes, Waterproof Workwear - Etsy.jpg" alt="KIRIOS Barber Smock" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">KIRIOS Barber Smock</h3>
+                        <p class="product-description">Bata profesional impermeable con diseño moderno en verde oscuro y rayas amarillas.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20KIRIOS%20Barber%20Smock" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oferta Especial -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Oferta</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Oferta Especial Adquiere Uniformes Modernos y Funcionales para tu Equipo.jpg" alt="Oferta Especial" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Oferta Especial</h3>
+                        <p class="product-description">Paquetes especiales en uniformes modernos y funcionales para todo tu equipo de trabajo.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20la%20Oferta%20Especial%20de%20Uniformes" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaliza tu Estilo -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Personaliza tu Estilo Uniformes con Logo y Nombre para Barberos y Estilistas.jpg" alt="Uniformes Profesionales" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Uniformes Profesionales</h3>
+                        <p class="product-description">La mejor selección de uniformes que combinan comodidad, durabilidad y estilo profesional.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniformes%20Profesionales%20para%20Barberos" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personalized Barber Polo -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Personalized Barber Polo Shirt_ 3D Print Barber Shop Apparel.jpg" alt="Professional Barber Uniforms" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Professional Barber Uniforms</h3>
+                        <p class="product-description">Diseñados para ofrecer comodidad y estilo durante largas jornadas de trabajo.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Professional%20Barber%20Uniforms" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personalized Hairdresser -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Personalized Hairdresser and Beautician Tunics with Embroidered Logos, Perfect for Spa Uniforms.jpg" alt="Túnicas Bordadas para Spa" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Túnicas para Spa</h3>
+                        <p class="product-description">Túnicas personalizadas con bordados, ideales para profesionales de la belleza y el bienestar.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Túnicas%20Bordadas%20para%20Spa" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Uniforme de Impacto -->
+                <div class="product-card" data-category="barber">
+                    <div class="product-header">
+                        <div class="product-badge">Destacado</div>
+                        <div class="product-image">
+                            <img src="images/barber estetica/Uniforme de Impacto Eleva la Imagen de tu Centro de EstéticaBarbería.jpg" alt="Elegancia y Funcionalidad" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Elegancia y Funcionalidad</h3>
+                        <p class="product-description">Diseños que no sacrifican el estilo por la comodidad, perfectos para el profesional moderno.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/593993076595?text=Hola%20Fabytex,%20estoy%20interesado%20en%20Uniformes%20de%20Elegancia%20y%20Funcionalidad" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer" style="flex-shrink: 0; width: 100%;">
@@ -2458,7 +4081,7 @@
             
             <!-- Copyright y enlaces legales -->
             <div class="footer-bottom">
-                <p class="copyright">Diseñado por <a href="https://cesarreyesjaramillo.com" target="_blank" style="color: var(--accent-color); text-decoration: none;">@cesarreyesjaramillo.com</a> &copy; <span id="current-year">2025</span> Fabytex. Todos los derechos reservados.</p>
+                <p class="copyright">Diseñado por <a href="https://cesarreyesjaramillo.com" target="_blank" style="color: var(--accent-color); text-decoration: none;">@cesarreyesjaramillo.com</a> © <span id="current-year">2025</span> Fabytex. Todos los derechos reservados.</p>
                 <div class="legal-links">
                     <a href="#">Términos y Condiciones</a>
                     <span>|</span>
@@ -2578,6 +4201,79 @@
             // Inicializar la pestaña activa
             initTab();
             
+            // Función para inicializar la carga progresiva de productos
+            function initProgressiveLoading() {
+                // Configuración de carga progresiva
+                const itemsPerLoad = 6; // Cantidad de productos a cargar por vez
+                const allGrids = document.querySelectorAll('.catalog-grid');
+                
+                allGrids.forEach(grid => {
+                    const items = grid.querySelectorAll('.product-card');
+                    const totalItems = items.length;
+                    let visibleItems = 0;
+                    
+                    // Ocultar todos los elementos inicialmente
+                    items.forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    
+                    // Mostrar los primeros elementos
+                    showMoreItems(grid, itemsPerLoad);
+                    
+                    // Crear botón de "Ver más" si es necesario
+                    if (items.length > itemsPerLoad) {
+                        const loadMoreBtn = document.createElement('button');
+                        loadMoreBtn.className = 'load-more-btn';
+                        loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Ver más productos';
+                        
+                        const loadMoreContainer = document.createElement('div');
+                        loadMoreContainer.className = 'load-more-container';
+                        loadMoreContainer.appendChild(loadMoreBtn);
+                        
+                        grid.parentNode.insertBefore(loadMoreContainer, grid.nextSibling);
+                        
+                        // Manejar clic en el botón "Ver más"
+                        loadMoreBtn.addEventListener('click', function() {
+                            if (this.classList.contains('loading')) return;
+                            
+                            this.classList.add('loading');
+                            this.innerHTML = '<i class="fas fa-spinner"></i> Cargando...';
+                            
+                            // Simular carga con un pequeño retraso para mejor experiencia de usuario
+                            setTimeout(() => {
+                                showMoreItems(grid, itemsPerLoad);
+                                this.classList.remove('loading');
+                                this.innerHTML = '<i class="fas fa-plus"></i> Ver más productos';
+                                
+                                // Ocultar el botón si ya se mostraron todos los elementos
+                                const remainingItems = grid.querySelectorAll('.product-card[style="display: none;"]').length;
+                                if (remainingItems === 0) {
+                                    this.style.display = 'none';
+                                }
+                            }, 300);
+                        });
+                    }
+                });
+                
+                // Función para mostrar más elementos
+                function showMoreItems(grid, count) {
+                    const hiddenItems = grid.querySelectorAll('.product-card[style="display: none;"]');
+                    const itemsToShow = Math.min(count, hiddenItems.length);
+                    
+                    for (let i = 0; i < itemsToShow; i++) {
+                        hiddenItems[i].style.display = 'block';
+                        hiddenItems[i].classList.add('visible');
+                    }
+                }
+            }
+            
+            // Inicializar la carga progresiva cuando el DOM esté completamente cargado
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initProgressiveLoading);
+            } else {
+                initProgressiveLoading();
+            }
+            
             // Configurar el botón de WhatsApp flotante
             const whatsappBtn = document.querySelector('.whatsapp-float');
             if (whatsappBtn) {
@@ -2636,5 +4332,128 @@
         });
     </script>
     <script src="js/main.js"></script>
-</body>
-</html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para inicializar la carga progresiva
+            function initProgressiveLoading() {
+                const grid = document.getElementById('uniformes-y-trabajo-grid');
+                if (!grid) return;
+
+                const cards = grid.querySelectorAll('.product-card');
+                const loadMoreBtn = document.getElementById('load-more-uniformes');
+                const itemsPerLoad = 6;
+                let visibleItems = 15; // Mostrar las primeras 15 tarjetas
+
+                // Ocultar todas las tarjetas inicialmente
+                cards.forEach((card, index) => {
+                    if (index < visibleItems) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Mostrar u ocultar el botón según sea necesario
+                function updateButtonVisibility() {
+                    if (visibleItems >= cards.length) {
+                        loadMoreBtn.style.display = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'inline-flex';
+                    }
+                }
+
+                // Manejar clic en el botón "Ver más"
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', function() {
+                        // Mostrar las siguientes 6 tarjetas
+                        const nextItems = visibleItems + itemsPerLoad;
+                        for (let i = visibleItems; i < nextItems && i < cards.length; i++) {
+                            if (cards[i]) {
+                                cards[i].style.display = 'block';
+                                cards[i].classList.add('fade-in');
+                            }
+                        }
+                        visibleItems = nextItems;
+                        updateButtonVisibility();
+
+                        // Desplazarse suavemente a la primera tarjeta nueva
+                        if (visibleItems > 15) {
+                            const firstNewCard = cards[visibleItems - itemsPerLoad];
+                            if (firstNewCard) {
+                                firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }
+                        }
+                    });
+
+                    // Verificar visibilidad inicial
+                    updateButtonVisibility();
+                }
+            }
+
+            // Inicializar la carga progresiva
+            initProgressiveLoading();
+        });
+    </script>
+    <style>
+        /* Estilos para la animación de las tarjetas */
+        .product-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background-color: #ffcc00;
+            color: #001f3f;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .load-more-btn:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .load-more-btn:active {
+            transform: translateY(0);
+        }
+
+        .load-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .load-more-btn.loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+</body></html>
